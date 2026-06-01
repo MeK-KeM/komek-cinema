@@ -43,35 +43,24 @@
   }
 }
 
-// Brand logo (film-strip mark + KOMEK / BY TICKET)
+// Brand logo (KOMEK by ticket — single SVG)
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  transition: opacity .2s ease;
 
-  &__mark { flex: none; }
+  &:hover { opacity: .85; }
 
-  &__text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
+  &__svg {
+    display: block;
+    height: 42px;
+    width: auto;
   }
-  &__name {
-    font-weight: 800;
-    font-size: 22px;
-    letter-spacing: .5px;
-    color: $color-green;
-    position: relative;
-    &::after { content: '®'; font-size: 9px; vertical-align: super; color: $color-green; }
-  }
-  &__sub {
-    font-size: 9.5px;
-    letter-spacing: 4px;
-    color: $color-white;
-    margin-top: 4px;
+
+  @include sm {
+    &__svg { height: 36px; }
   }
 }
-.logo--footer .logo__sub { color: rgba($color-white, .8); }
 
 // Round social buttons
 .social {
