@@ -1,0 +1,13 @@
+// Top hero banner — the downloaded background image lives here
+.hero {
+  position: relative;
+  height: 430px;
+  background-image: url('../images/hero.svg');
+  background-size: cover;
+  background-position: center 28%;
+  background-repeat: no-repeat;
+  background-color: $color-teal;
+
+  @include md { height: 300px; }
+  @include sm { height: 200px; }
+}

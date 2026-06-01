@@ -1,0 +1,174 @@
+// ===== Dark teal contact strip =====
+.topbar {
+  background: $color-teal;
+  color: $color-white;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    min-height: 84px;
+    padding-block: 14px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    line-height: 1.25;
+
+    strong { font-weight: 600; font-size: 15px; }
+    span { font-size: 12.5px; color: rgba($color-white, .7); }
+  }
+
+  &__info--phone strong { white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; }
+  &__chev { width: 12px; height: 12px; opacity: .7; }
+
+  &__spacer { flex: 1; }
+
+  &__socials {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__ticket { padding: 12px 24px; }
+
+  @include lg {
+    &__inner { flex-wrap: wrap; gap: 18px; }
+    &__spacer { flex-basis: 100%; height: 0; display: none; }
+  }
+  @include md {
+    &__inner { gap: 16px; }
+    &__info--addr, &__info--phone { font-size: 13px; }
+  }
+}
+
+// Brand logo (film-strip mark + KOMEK / BY TICKET)
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  &__mark { flex: none; }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  &__name {
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: .5px;
+    color: $color-green;
+    position: relative;
+    &::after { content: '®'; font-size: 9px; vertical-align: super; color: $color-green; }
+  }
+  &__sub {
+    font-size: 9.5px;
+    letter-spacing: 4px;
+    color: $color-white;
+    margin-top: 4px;
+  }
+}
+.logo--footer .logo__sub { color: rgba($color-white, .8); }
+
+// Round social buttons
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba($color-white, .12);
+  color: $color-white;
+
+  svg { width: 16px; height: 16px; }
+
+  &:hover { background: $color-red; transform: translateY(-2px); }
+  transition: background .2s ease, transform .2s ease;
+}
+
+// ===== White navigation bar =====
+.navbar {
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 64px;
+  }
+
+  &__label { display: none; font-weight: 600; font-size: 15px; }
+
+  &__collapse {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    a {
+      font-size: 15px;
+      font-weight: 500;
+      padding: 6px 2px;
+      position: relative;
+      color: $color-text;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0; right: 0; bottom: -2px;
+        height: 2px;
+        background: $color-red;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform .2s ease;
+      }
+      &:hover::after,
+      &.is-active::after { transform: scaleX(1); }
+      &.is-active { color: $color-red; }
+    }
+  }
+
+  &__actions { display: flex; gap: 12px; }
+
+  // mobile burger
+  &__burger {
+    display: none;
+    margin-left: auto;
+    flex-direction: column;
+    gap: 5px;
+    width: 42px; height: 42px;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    background: $color-white;
+    align-items: center;
+    justify-content: center;
+    span { width: 20px; height: 2px; background: $color-text; border-radius: 2px; }
+  }
+
+  @include md {
+    &__label { display: block; }
+    &__burger { display: flex; }
+    &__inner { flex-wrap: wrap; }
+    &__collapse {
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 14px;
+      padding-bottom: 16px;
+    }
+    &.is-open &__collapse { display: flex; }
+    &__links { flex-direction: column; align-items: flex-start; gap: 10px; width: 100%; }
+    &__actions { flex-direction: column; }
+    .btn { width: 100%; }
+  }
+}

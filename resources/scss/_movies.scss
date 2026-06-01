@@ -1,0 +1,143 @@
+// ===== Movie grid =====
+.afisha {
+  padding-block: 30px 50px;
+}
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px 26px;
+
+  @include lg { grid-template-columns: repeat(3, 1fr); }
+  @include md { grid-template-columns: repeat(2, 1fr); gap: 24px 18px; }
+  @include sm { grid-template-columns: 1fr; }
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+
+  &__poster {
+    position: relative;
+    aspect-ratio: 27 / 40;
+    border-radius: $radius;
+    overflow: hidden;
+    background: $color-teal;
+    margin-bottom: 14px;
+
+    img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+  }
+  &:hover &__poster img { transform: scale(1.04); }
+
+  // placeholder when no poster is supplied
+  &__noimg {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba($color-white, .55);
+    svg { width: 54px; height: 54px; }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 0; right: 0;
+    background: $color-red;
+    color: $color-white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    padding: 7px 14px;
+    border-bottom-left-radius: $radius;
+  }
+
+  &__age {
+    position: absolute;
+    left: 10px; bottom: 10px;
+    background: rgba(0, 0, 0, .55);
+    color: $color-white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 7px;
+    border-radius: 4px;
+    backdrop-filter: blur(2px);
+  }
+
+  &__title {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+
+  &__genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+
+  &__sessions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 8px;
+    margin-top: auto;
+  }
+
+  &__more { align-self: flex-start; margin-top: auto; }
+}
+
+.genre {
+  background: $color-tag-bg;
+  color: $color-muted;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: $radius-sm;
+  white-space: nowrap;
+}
+
+// A single showtime
+.session {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc((100% - 16px) / 3); // 3 per row
+  text-align: center;
+
+  &__btn {
+    display: block;
+    width: 100%;
+    background: $color-red;
+    border: 0;
+    border-radius: $radius-sm;
+    padding: 6px 4px 5px;
+    color: $color-white;
+    transition: background .2s ease, transform .1s ease;
+
+    &:hover { background: $color-red-dark; }
+    &:active { transform: translateY(1px); }
+  }
+
+  &__time { display: block; font-size: 15px; font-weight: 700; line-height: 1.1; }
+
+  &__meta {
+    display: block;
+    margin-top: 4px;
+    background: rgba(0, 0, 0, .16);
+    border-radius: 4px;
+    padding: 2px 4px;
+    font-size: 10.5px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  &__hall {
+    font-size: 11px;
+    color: $color-muted;
+    margin-top: 5px;
+  }
+}

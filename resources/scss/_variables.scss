@@ -1,0 +1,37 @@
+// ===== Design tokens =====
+
+// Brand colours
+$color-teal:        #1d4e57; // dark teal header / footer strip
+$color-teal-dark:   #173f47; // footer bottom bar
+$color-teal-light:  #2a5b65; // hover / borders on teal
+$color-red:         #e21f2b; // primary accent (buttons, active tab, sessions)
+$color-red-dark:    #c5151f; // hover / inner price pill
+$color-green:       #3bb54a; // "KOMEK" logo word
+
+// Neutrals
+$color-bg:          #3f6670; // page background outside the content card
+$color-white:       #ffffff;
+$color-text:        #1f2b2e; // default body text
+$color-muted:       #8a8f92; // genre tags / hall labels
+$color-tag-bg:      #eef0f1; // genre tag background
+$color-tab-bg:      #f3f4f5; // inactive date tab
+$color-border:      #e6e8ea;
+
+// Layout
+$container:   1400px;
+$gutter:      24px;
+$radius-sm:   6px;
+$radius:      10px;
+$radius-pill: 999px;
+
+// Typography
+$font: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+// Breakpoints
+$bp-lg: 1200px;
+$bp-md: 900px;
+$bp-sm: 600px;
+
+@mixin lg { @media (max-width: #{$bp-lg}) { @content; } }
+@mixin md { @media (max-width: #{$bp-md}) { @content; } }
+@mixin sm { @media (max-width: #{$bp-sm}) { @content; } }

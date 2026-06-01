@@ -1,0 +1,78 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: $font;
+  font-size: 15px;
+  line-height: 1.4;
+  color: $color-text;
+  background: $color-bg;
+}
+
+img { display: block; max-width: 100%; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease, opacity .2s ease;
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+h1, h2, h3, h4 { margin: 0; font-weight: 600; }
+
+// Centred page "card" that holds the whole site
+.page {
+  max-width: $container;
+  margin: 0 auto;
+  background: $color-white;
+}
+
+.container {
+  width: 100%;
+  padding-inline: 32px;
+
+  @include md { padding-inline: 20px; }
+  @include sm { padding-inline: 14px; }
+}
+
+// Generic red pill button used across the UI
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 0;
+  border-radius: $radius-pill;
+  background: $color-red;
+  color: $color-white;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  padding: 12px 22px;
+  white-space: nowrap;
+  transition: background .2s ease, transform .1s ease;
+
+  &:hover { background: $color-red-dark; }
+  &:active { transform: translateY(1px); }
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid rgba($color-white, .5);
+  &:hover { background: rgba($color-white, .12); }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
