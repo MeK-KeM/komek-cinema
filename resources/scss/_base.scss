@@ -10,7 +10,9 @@ body {
   font-size: 15px;
   line-height: 1.4;
   color: $color-text;
-  background: $color-bg;
+  // Fixed decorative backdrop — the poster art sits in the corners and shows
+  // in the gutters around the centred content card on wide screens.
+  background: $color-bg url('../images/background-poster.png') center / cover no-repeat fixed;
 }
 
 img { display: block; max-width: 100%; }
